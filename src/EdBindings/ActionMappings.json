@@ -3,7 +3,8 @@
     "code": "UI_Up",
     "area": "General Controls",
     "category": "Interface Mode",
-    "action": "UI Panel Up"
+    "action": "UI Panel Up",
+    "note" : "Input for Interacting with the cockpit interfaces (and main game menus)."
   },
   {
     "code": "UI_Down",
@@ -2290,5 +2291,5 @@
     "area": "On Foot Controls",
     "category": "On Foot Mode Switches",
     "action": "Open Conflict Zone Battle Stats"
-  },
+  }
 ]

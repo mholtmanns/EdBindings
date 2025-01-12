@@ -1,0 +1,509 @@
+{
+  "name": "Virpil MongoosT-50CM3 Throttle",
+  "controls": [
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Left Throttle Axis",
+      "controlValue": "Joy_RXAxis"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Right Throttle Axis",
+      "controlValue": "Joy_RYAxis"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Flaps Axis",
+      "controlValue": "Joy_RZAxis"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Grip Slider Axis",
+      "controlValue": "Joy_ZAxis"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Grip Analog Stick Press",
+      "controlValue": "Joy_13"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Grip Analog Stick Left/Right",
+      "controlValue": "Joy_XAxis"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Grip Analog Stick Up/Down",
+      "controlValue": "Joy_YAxis"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Left Grip Dial Press",
+      "controlValue": "Joy_1"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Left Grip Dial Forward",
+      "controlValue": "Joy_3"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Left Grip Dial Backward",
+      "controlValue": "Joy_2"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Right Grip Dial Forward",
+      "controlValue": "Joy_14"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Right Grip Dial Backward",
+      "controlValue": "Joy_15"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Dial E1 Press",
+      "controlValue": "Joy_50"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Dial E1 Left",
+      "controlValue": "Joy_51"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Dial E1 Right",
+      "controlValue": "Joy_52"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Dial E2 Press",
+      "controlValue": "Joy_53"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Dial E2 Left",
+      "controlValue": "Joy_54"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Dial E2 Right",
+      "controlValue": "Joy_55"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Toggle T5 Forward",
+      "controlValue": "Joy_44"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Toggle T5 Backward",
+      "controlValue": "Joy_45"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Toggle T6 Forward",
+      "controlValue": "Joy_46"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Toggle T6 Backward",
+      "controlValue": "Joy_47"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Toggle T7 Forward",
+      "controlValue": "Joy_48"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Toggle T7 Backward",
+      "controlValue": "Joy_49"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Grip Pinky Button",
+      "controlValue": "Joy_4"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Grip 3-way HAT Up",
+      "controlValue": "Joy_7"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Grip 3-way HAT Down",
+      "controlValue": "Joy_6"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Grip 3-way HAT Right",
+      "controlValue": "Joy_5"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Grip Index Finger HAT Button",
+      "controlValue": "Joy_8"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Grip Index Finger HAT Right",
+      "controlValue": "Joy_10"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Grip Index Finger HAT Left",
+      "controlValue": "Joy_12"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Grip Index Finger HAT Up",
+      "controlValue": "Joy_11"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Grip Index Finger HAT Down",
+      "controlValue": "Joy_9"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Right Grip Dial HAT Button",
+      "controlValue": "Joy_16"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Right Grip Dial HAT Forward",
+      "controlValue": "Joy_17"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Right Grip Dial HAT Backward",
+      "controlValue": "Joy_19"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Right Grip Dial HAT Up",
+      "controlValue": "Joy_20"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Right Grip Dial HAT Down",
+      "controlValue": "Joy_18"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Thumb HAT High Button",
+      "controlValue": "Joy_22"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Thumb HAT High Forward",
+      "controlValue": "Joy_26"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Thumb HAT High Backward",
+      "controlValue": "Joy_24"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Thumb HAT High Up",
+      "controlValue": "Joy_25"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Thumb HAT High Down",
+      "controlValue": "Joy_23"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Thumb HAT Low Button",
+      "controlValue": "Joy_27"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Thumb HAT Low Forward",
+      "controlValue": "Joy_31"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Thumb HAT Low Backward",
+      "controlValue": "Joy_29"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Thumb HAT Low Up",
+      "controlValue": "Joy_30"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Thumb HAT Low Down",
+      "controlValue": "Joy_28"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Thumb Button Front",
+      "controlValue": "Joy_21"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Thumb Button Back",
+      "controlValue": "Joy_32"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Flip Switch T1",
+      "controlValue": "Joy_34"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Flip Switch T2",
+      "controlValue": "Joy_35"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Flip Switch T3",
+      "controlValue": "Joy_36"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Flip Switch T4",
+      "controlValue": "Joy_37"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B1-M1",
+      "controlValue": "Joy_38"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B2-M1",
+      "controlValue": "Joy_39"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B3-M1",
+      "controlValue": "Joy_40"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B4-M1",
+      "controlValue": "Joy_41"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B5-M1",
+      "controlValue": "Joy_42"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B6-M1",
+      "controlValue": "Joy_43"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B1-M2",
+      "controlValue": "Joy_56"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B2-M2",
+      "controlValue": "Joy_57"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B3-M2",
+      "controlValue": "Joy_58"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B4-M2",
+      "controlValue": "Joy_59"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B5-M2",
+      "controlValue": "Joy_60"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B6-M2",
+      "controlValue": "Joy_61"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B1-M3",
+      "controlValue": "Joy_62"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B2-M3",
+      "controlValue": "Joy_63"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B3-M3",
+      "controlValue": "Joy_64"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B4-M3",
+      "controlValue": "Joy_65"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B5-M3",
+      "controlValue": "Joy_66"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B6-M3",
+      "controlValue": "Joy_67"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B1-M4",
+      "controlValue": "Joy_68"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B2-M4",
+      "controlValue": "Joy_69"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B3-M4",
+      "controlValue": "Joy_70"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B4-M4",
+      "controlValue": "Joy_71"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B5-M4",
+      "controlValue": "Joy_72"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B6-M4",
+      "controlValue": "Joy_73"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B1-M5",
+      "controlValue": "Joy_74"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B2-M5",
+      "controlValue": "Joy_75"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B3-M5",
+      "controlValue": "Joy_76"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B4-M5",
+      "controlValue": "Joy_77"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B5-M5",
+      "controlValue": "Joy_78"
+    },
+    {
+      "deviceId": "33448197",
+      "deviceName": "VPC MongoosT Throttle",
+      "controlLabel": "Panel Button B6-M5",
+      "controlValue": "Joy_79"
+    }
+  ]
+}

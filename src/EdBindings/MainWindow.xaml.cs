@@ -33,7 +33,7 @@
         /// Gets or sets the device map.
         /// </summary>
         /// <value>The device map.</value>
-        private DeviceMap DeviceMap { get; set; }
+        private List<DeviceMap> DeviceMaps { get; set; }
 
         /// <summary>
         /// Gets or sets the key bindings.
@@ -53,6 +53,7 @@
         public MainWindow()
         {
             InitializeComponent();
+            this.DeviceMaps = new List<DeviceMap>();
 
             this.ActionMappings = ActionMapping.Open(Path.GetFullPath(@".\ActionMappings.json"));
 
@@ -71,6 +72,8 @@
 
                 this.DeviceMappingMenu.Items.Add(menuItem);
             }
+            var checkedMenuItem = (MenuItem)this.DeviceMappingMenu.Items[ApplicationSettings.Default.DeviceMapSelection];
+            checkedMenuItem.IsChecked = true;
             this.SelectActiveDeviceMapping(ApplicationSettings.Default.DeviceMapSelection);
         }
 
@@ -92,19 +95,28 @@
         private void SelectActiveDeviceMapping(int index)
         {
             var menuItem = (MenuItem)this.DeviceMappingMenu.Items[index];
-            this.DeviceMap = (DeviceMap)menuItem.DataContext;
-            foreach(var item in this.DeviceMappingMenu.Items)
-            {
-                ((MenuItem)item).IsChecked = false;
-            }
+            string deviceMapName = "Device Mapping: ";
 
-            menuItem.IsChecked = true;
+            foreach(MenuItem dmItem in this.DeviceMappingMenu.Items.OfType<MenuItem>())
+            {
+                if (dmItem.IsChecked)
+                {
+                    this.DeviceMaps.Add((DeviceMap)dmItem.DataContext);
+                    deviceMapName += $"{dmItem.Header} | ";
+                }
+            }
+            // Remove the trailing " | "
+            deviceMapName = deviceMapName.Substring(0, deviceMapName.Length - 3);
+
+            // The last selected Device mapping will be stored as default.
+            // [TODO] This should be changed to take all selected mappigns into account
             if(index != ApplicationSettings.Default.DeviceMapSelection)
             {
                 ApplicationSettings.Default.DeviceMapSelection = index;
                 ApplicationSettings.Default.Save();
             }
-            DeviceFileStatusBar.Content = $"Device Mapping: {menuItem.Header}";
+
+            DeviceFileStatusBar.Content = deviceMapName;
             this.ProcessBindingFile();
 
         }
@@ -145,8 +157,9 @@
             }
 
             var justBindingGroups = this.BindingFile.Bindings.Where(binding => binding is EdBindings.Model.BindingsRaw.Bindings.BindingGroup).ToList();
-            var dataSource = justBindingGroups.Select(group => KeyBindingView.MakeKeyBindingView((EdBindings.Model.BindingsRaw.Bindings.BindingGroup)group, this.DeviceMap, this.ActionMappings)).ToList();
+            var dataSource = justBindingGroups.Select(group => KeyBindingView.MakeKeyBindingView((EdBindings.Model.BindingsRaw.Bindings.BindingGroup)group, this.DeviceMaps, this.ActionMappings)).ToList();
             var filterable = new CollectionViewSource() { Source = new ObservableCollection<KeyBindingView>(dataSource) };
+
             this.KeyBindings = filterable.View;
 
             this.KeyBindingDataGrid.ItemsSource = this.KeyBindings;
@@ -169,7 +182,8 @@
                 || binding.PrimaryKey.Contains(this.txtFilter.Text, StringComparison.InvariantCultureIgnoreCase)
                 || (binding.SecondaryKey?.Contains(this.txtFilter.Text, StringComparison.InvariantCultureIgnoreCase) ?? false)
                 || binding.Area.Contains(this.txtFilter.Text, StringComparison.InvariantCultureIgnoreCase)
-                || binding.Category.Contains(this.txtFilter.Text, StringComparison.InvariantCultureIgnoreCase);
+                || binding.Category.Contains(this.txtFilter.Text, StringComparison.InvariantCultureIgnoreCase)
+                || (binding.PrimaryDevice?.Contains(this.txtFilter.Text, StringComparison.InvariantCultureIgnoreCase) ?? false);
             });
 
             if(string.IsNullOrWhiteSpace(this.txtFilter.Text))
@@ -206,6 +220,26 @@
             if (string.IsNullOrWhiteSpace(this.txtFilter.Text))
             {
                 this.txtFilter.Text = placeHolderText;
+            }
+        }
+
+        /// <summary>
+        /// Toggles the column visibility.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        private void ToggleColumnVisibility(object sender, RoutedEventArgs e)
+        {
+            var menuItem = sender as MenuItem;
+            if (menuItem != null && menuItem.Tag != null)
+            {
+                string columnTag = menuItem.Tag.ToString();
+
+                var column = this.KeyBindingDataGrid.Columns.FirstOrDefault(c => c.Header.ToString() == columnTag);
+                if (column != null)
+                {
+                    column.Visibility = menuItem.IsChecked ? Visibility.Visible : Visibility.Collapsed;
+                }
             }
         }
 

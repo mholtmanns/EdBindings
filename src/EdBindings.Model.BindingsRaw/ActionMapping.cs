@@ -34,6 +34,11 @@ namespace EdBindings.Model
         /// <value>The action.</value>
         public string Action { get; set; }
 
+        /// <summary>
+        /// Gets or sets the KeyBind Note.
+        /// </summary>
+        /// <value>In-Game Notes</value>
+        public string Note { get; set; }
 
         /// <summary>
         /// Cctors the specified path.

@@ -27,7 +27,29 @@
             </MenuItem>
         </Menu>
         <TextBox Grid.Row="1" Name="txtFilter" KeyUp="TxtFilterKeyUp" Text="Filter..." GotFocus="TxtFilterGotFocus" LostFocus="TxtFilterLostFocus"/>
-        <DataGrid Grid.Row="2" Name="KeyBindingDataGrid" AlternatingRowBackground="LightBlue" AlternationCount="2" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+        <DataGrid Grid.Row="2" Name="KeyBindingDataGrid"
+                  AlternatingRowBackground="LightBlue"
+                  AlternationCount="2"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  IsReadOnly="True"
+                  CanUserSortColumns="True">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Show/Hide Columns">
+                        <MenuItem Header="Area" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Area"/>
+                        <MenuItem Header="Category" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Category"/>
+                        <MenuItem Header="Action" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Action"/>
+                        <MenuItem Header="Primary Device" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Primary Device"/>
+                        <MenuItem Header="Primary Key" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Primary Key"/>
+                        <MenuItem Header="Secondary Device" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Secondary Device"/>
+                        <MenuItem Header="Secondary Key" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Secondary Key"/>
+                        <MenuItem Header="VoiceAttack/BindED Variable" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="VoiceAttack/BindED Variable"/>
+                        <MenuItem Header="Notes" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Notes"/>
+                    </MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Area" Binding="{Binding Area}"/>
                 <DataGridTextColumn Header="Category" Binding="{Binding Category}"/>
@@ -37,6 +59,7 @@
                 <DataGridTextColumn Header="Secondary Device" Binding="{Binding SecondaryDevice}"/>
                 <DataGridTextColumn Header="Secondary Key" Binding="{Binding SecondaryKey}"/>
                 <DataGridTextColumn Header="VoiceAttack/BindED Variable" Binding="{Binding BindEdVariable}"/>
+                <DataGridTextColumn Header="Notes" Binding="{Binding Note}"/>
             </DataGrid.Columns>
         </DataGrid>
 

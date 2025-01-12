@@ -61,14 +61,20 @@
         /// <value>The bind ed variable.</value>
         public string BindEdVariable { get; set; }
 
+        /// <summary>
+        /// Gets notes for this keybind.
+        /// </summary>
+        /// <value>In-Game notes for this keybind</value>
+        public string Note { get; set; }
+
 
         /// <summary>
         /// Makes the key binding view.
         /// </summary>
         /// <param name="group">The group.</param>
-        /// <param name="deviceMap">The device map.</param>
+        /// <param name="deviceMaps">The device mapping list.</param>
         /// <returns>KeyBindingView.</returns>
-        public static KeyBindingView MakeKeyBindingView(BindingGroup group, DeviceMap deviceMap, List<ActionMapping> actionMappings)
+        public static KeyBindingView MakeKeyBindingView(BindingGroup group, List<DeviceMap> deviceMaps, List<ActionMapping> actionMappings)
         {
             var view = new KeyBindingView();
 
@@ -76,11 +82,16 @@
             view.Area = actionMapping?.Area ?? string.Empty;
             view.Category = actionMapping?.Category ?? string.Empty;
             view.Action = actionMapping?.Action ?? group.Name;
+            view.Note = actionMapping?.Note ?? string.Empty;
 
             var primary = (BindingDevice)group.Bindings.First(b => new[] { "Binding", "Primary" }.Contains(b.Name));
-            var primaryDeviceMap = deviceMap.FindControlMap(primary);
+
+            var primaryDeviceMap = deviceMaps?.Select(dm => dm.FindControlMap(primary)).FirstOrDefault(dcm => dcm != null);
+
             var secondary = (BindingDevice)group.Bindings.FirstOrDefault(b => b.Name == "Secondary");
-            var secondaryDeviceMap = deviceMap.FindControlMap(secondary);
+
+            // var secondaryDeviceMap = deviceMap.FindControlMap(secondary);
+            var secondaryDeviceMap = deviceMaps?.Select(dm => dm.FindControlMap(secondary)).FirstOrDefault(dcm => dcm != null);
 
             view.PrimaryDevice = primaryDeviceMap?.DeviceName ?? primary.Device;
             view.PrimaryKey = primaryDeviceMap?.ControlLabel ?? primary.Key;
