@@ -2,6 +2,8 @@
 
 ## Fork related details
 
+First of all a big thank you to [Geoff Horsey](https://github.com/ghorsey) for creating this app. After souring the web this was finally the thing I was looking for. A complete sortable and searchable list of all active control bindings for Elite Dangerous. Plus it is in a format/language which does not make it completely impossible for me to customize things.
+
 This repo was forked in January 2025. Given the fact that the original repo was not touched in a few years, I do not intend to do pull requests for the time being. That might change though in case the origial author gets active again on this tools.
 
 The initial changes I did are:
