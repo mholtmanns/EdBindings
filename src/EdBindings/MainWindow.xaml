@@ -19,6 +19,8 @@
         <Menu Grid.Row="0" Grid.Column="1" Name="MainMenu">
             <MenuItem Header="_File">
                 <MenuItem Header="_Open Bindings" Click="FileOpenBindingsMenuItemClick" />
+                <MenuItem Header="_Recent..." Name="RecentBindingsMenu" />
+                <Separator/>
                 <MenuItem Header="E_xit" Click="FileExitMenuItemClick"/>
             </MenuItem>
             <MenuItem Header="_Device Mappings" Name="DeviceMappingMenu"/>
@@ -38,15 +40,15 @@
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Show/Hide Columns">
-                        <MenuItem Header="Area" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Area"/>
-                        <MenuItem Header="Category" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Category"/>
-                        <MenuItem Header="Action" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Action"/>
-                        <MenuItem Header="Primary Device" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Primary Device"/>
-                        <MenuItem Header="Primary Key" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Primary Key"/>
-                        <MenuItem Header="Secondary Device" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Secondary Device"/>
-                        <MenuItem Header="Secondary Key" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Secondary Key"/>
-                        <MenuItem Header="VoiceAttack/BindED Variable" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="VoiceAttack/BindED Variable"/>
-                        <MenuItem Header="Notes" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Notes"/>
+                        <MenuItem Header="Area" Name="Area" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Area"/>
+                        <MenuItem Header="Category" Name="Category" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Category"/>
+                        <MenuItem Header="Action" Name="Action" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Action"/>
+                        <MenuItem Header="Primary Device" Name="PrimaryDevice" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Primary Device"/>
+                        <MenuItem Header="Primary Key" Name="PrimaryKey" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Primary Key"/>
+                        <MenuItem Header="Secondary Device" Name="SecondaryDevice" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Secondary Device"/>
+                        <MenuItem Header="Secondary Key" Name="SecondaryKey" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Secondary Key"/>
+                        <MenuItem Header="VoiceAttack/BindED Variable" Name="VoiceAttackBindEDVariable" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="VoiceAttack/BindED Variable"/>
+                        <MenuItem Header="Notes" Name="Notes" IsCheckable="True" IsChecked="True" Click="ToggleColumnVisibility" Tag="Notes"/>
                     </MenuItem>
                 </ContextMenu>
             </DataGrid.ContextMenu>

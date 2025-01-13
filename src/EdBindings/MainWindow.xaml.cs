@@ -9,6 +9,7 @@
     using System.ComponentModel;
     using System.IO;
     using System.Linq;
+    using System.Text.RegularExpressions;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Data;
@@ -75,6 +76,39 @@
             var checkedMenuItem = (MenuItem)this.DeviceMappingMenu.Items[ApplicationSettings.Default.DeviceMapSelection];
             checkedMenuItem.IsChecked = true;
             this.SelectActiveDeviceMapping(ApplicationSettings.Default.DeviceMapSelection);
+
+            if (ApplicationSettings.Default.RecentBindings.Count > 0)
+            {
+                this.RebuildRecentsMenu();
+            }
+
+            this.LoadVisibleColumns();
+        }
+
+        /// <summary>
+        /// Rebuilds the recentlz used files menu.
+        /// </summary>
+        private void RebuildRecentsMenu()
+        {
+            this.RecentBindingsMenu.Items.Clear();
+            // Checking again here since the menu might have been cleared by the user
+            if (ApplicationSettings.Default.RecentBindings.Count > 0)
+            {
+                foreach (var recentBinding in ApplicationSettings.Default.RecentBindings)
+                {
+                    var menuItem = new MenuItem();
+                    menuItem.Header = recentBinding;
+                    menuItem.Click += this.FileRecentBindingsMenuSelected;
+                    this.RecentBindingsMenu.Items.Add(menuItem);
+                }
+
+                var separator = new Separator();
+                this.RecentBindingsMenu.Items.Add(separator);
+                var menuItemClear = new MenuItem();
+                menuItemClear.Header = "Clear Recent Files";
+                menuItemClear.Click += this.ClearRecentFileList;
+                this.RecentBindingsMenu.Items.Add(menuItemClear);
+            }
         }
 
         /// <summary>
@@ -147,6 +181,29 @@
         }
 
         /// <summary>
+        /// Open the file that was selected from the "Recents" list
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        private void FileRecentBindingsMenuSelected(object sender, RoutedEventArgs e)
+        {
+            var menuItem = sender as MenuItem;
+            if (menuItem != null)
+            {
+                string fileName = menuItem.Header.ToString();
+                if (File.Exists(fileName))
+                {
+                    this.BindingFile = BindingFile.Open(fileName);
+                    this.ProcessBindingFile();
+                }
+                else
+                {
+                    MessageBox.Show($"File not found: {fileName}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        /// <summary>
         /// Processes the binding file.
         /// </summary>
         private void ProcessBindingFile()
@@ -166,6 +223,29 @@
             this.BindingFileStatusBar.Content = Path.GetFileName(this.BindingFile.FileName);
             this.KeyboardLayoutStatusBar.Content = this.BindingFile.KeyboardLayout;
             this.txtFilter.Text = placeHolderText;
+
+            if (!ApplicationSettings.Default.RecentBindings.Contains(this.BindingFile.FileName))
+            {
+                ApplicationSettings.Default.RecentBindings.Add(this.BindingFile.FileName);
+                ApplicationSettings.Default.Save();
+                this.RebuildRecentsMenu();
+            }
+        }
+
+        /// <summary>
+        /// Clears the recent file list after asking for confirmation.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        private void ClearRecentFileList(object sender, RoutedEventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure you want to clear the recent file list?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                ApplicationSettings.Default.RecentBindings.Clear();
+                ApplicationSettings.Default.Save();
+                this.RecentBindingsMenu.Items.Clear();
+            }
         }
 
         /// <summary>
@@ -239,9 +319,64 @@
                 if (column != null)
                 {
                     column.Visibility = menuItem.IsChecked ? Visibility.Visible : Visibility.Collapsed;
+                    this.SaveVisibleColumns();
                 }
             }
         }
+
+        /// <summary>
+        /// Loads which columns are visible from persistent settings.
+        /// </summary>
+        private void LoadVisibleColumns()
+        {
+            if (ApplicationSettings.Default.VisibleColumns != null)
+            {
+                foreach (var column in this.KeyBindingDataGrid.Columns)
+                {
+                    string name = column.Header.ToString();
+                    if (!string.IsNullOrEmpty(name))
+                    {
+                        // Use regular expression to replace all non-alphanumeric characters with an empty string
+                        name = Regex.Replace(name, @"[^a-zA-Z0-9]", string.Empty);
+                    }
+                    var menuItem = (MenuItem)this.FindName(name);
+                    if (ApplicationSettings.Default.VisibleColumns.Contains("All") || ApplicationSettings.Default.VisibleColumns.Contains(column.Header.ToString()))
+                    {
+                        column.Visibility = Visibility.Visible;
+                        if (menuItem != null)
+                        {
+                            menuItem.IsChecked = true;
+                        }
+                    }
+                    else
+                    {
+                        column.Visibility = Visibility.Collapsed;
+                        if (menuItem != null)
+                        {
+                            menuItem.IsChecked = false;
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Save set of visible columns to persistent settings.
+        /// </summary>
+        private void SaveVisibleColumns()
+        {
+            var visibleColumns = new System.Collections.Specialized.StringCollection();
+            foreach (var column in this.KeyBindingDataGrid.Columns)
+            {
+                if (column.Visibility == Visibility.Visible)
+                {
+                    visibleColumns.Add(column.Header.ToString());
+                }
+            }
+            ApplicationSettings.Default.VisibleColumns = visibleColumns;
+            ApplicationSettings.Default.Save();
+        }
+
 
         /// <summary>
         /// Menus the item click.

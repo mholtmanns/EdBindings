@@ -10,10 +10,14 @@
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Span FontSize="26" FontWeight="Bold">EdBindings</Span>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Span FontSize="10"><Run Text="{Binding VersionString}"/></Span>
             </TextBlock>
-            <TextBlock HorizontalAlignment="Center" FontSize="10">Copyright © 2021</TextBlock>
+            <TextBlock HorizontalAlignment="Center" FontSize="10">Copyright © 2021/2025</TextBlock>
             <TextBlock HorizontalAlignment="Center">Geoff Horsey (CMDR Erudine)</TextBlock>
+            <TextBlock HorizontalAlignment="Center" FontSize="10">Additional changes by</TextBlock>
+            <TextBlock HorizontalAlignment="Center" FontSize="10">Markus Holtmanns (CMDR Merlin McLaughlin)</TextBlock>
             <TextBlock HorizontalAlignment="Center">
                 <Hyperlink NavigateUri="https://github.com/ghorsey/EdBindings" RequestNavigate="HyperlinkRequestNavigate">Website</Hyperlink><LineBreak/>
                 <Hyperlink NavigateUri="https://github.com/ghorsey/EdBindings/blob/main/LICENSE" RequestNavigate="HyperlinkRequestNavigate">License</Hyperlink>
