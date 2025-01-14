@@ -377,6 +377,50 @@
             ApplicationSettings.Default.Save();
         }
 
+        /// <summary>
+        /// Handles the Sorting event of the KeyBindingDataGrid control.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void KeyBindingDataGrid_Sorting(object sender, DataGridSortingEventArgs e)
+        {
+            // Prevent the default sorting
+            e.Handled = true;
+
+            var collectionView = CollectionViewSource.GetDefaultView(KeyBindingDataGrid.ItemsSource);
+            var sortDescriptions = collectionView.SortDescriptions;
+
+            // Check if the column is already sorted
+            var existingSortDescription = sortDescriptions
+                .FirstOrDefault(sd => sd.PropertyName == e.Column.SortMemberPath);
+
+            ListSortDirection newDirection;
+
+            if (existingSortDescription.PropertyName != null)
+            {
+                // Toggle sort direction if the column is already sorted
+                newDirection = existingSortDescription.Direction == ListSortDirection.Ascending
+                    ? ListSortDirection.Descending
+                    : ListSortDirection.Ascending;
+
+                // Remove the existing sort description
+                sortDescriptions.Remove(existingSortDescription);
+            }
+            else
+            {
+                // Default to ascending if the column isn't sorted yet
+                newDirection = ListSortDirection.Ascending;
+            }
+
+            // Add the new sort description to the collection
+            sortDescriptions.Add(new SortDescription(e.Column.SortMemberPath, newDirection));
+
+            // Update the column's sort direction indicator
+            e.Column.SortDirection = newDirection;
+
+            // Refresh the view
+            collectionView.Refresh();
+        }
 
         /// <summary>
         /// Menus the item click.

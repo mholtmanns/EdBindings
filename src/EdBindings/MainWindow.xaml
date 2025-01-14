@@ -36,7 +36,8 @@
                   CanUserAddRows="False"
                   CanUserDeleteRows="False"
                   IsReadOnly="True"
-                  CanUserSortColumns="True">
+                  CanUserSortColumns="True"
+                  Sorting="KeyBindingDataGrid_Sorting">
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Show/Hide Columns">
